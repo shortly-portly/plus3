@@ -1,0 +1,23 @@
+<template name="userDetails">
+
+
+          <tr>
+          <td>
+            {{profile.firstName}}
+          </td>
+          <td>
+            {{profile.surname}}
+          </td>
+          <td>
+            {{userEmail}}
+          </td>
+          <td class="central">
+            {{userAdmin}}
+
+          </td>
+          <td class="central">
+            <a href="{{pathFor 'wibble'}}"><span class="glyphicon glyphicon-wrench"></span></a>
+          </td>
+        </tr>
+
+</template>

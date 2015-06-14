@@ -1,0 +1,22 @@
+<template name="performanceDetail">
+  <tr>
+    {{#with userDetails}}
+    <td>
+      {{profile.firstName}}
+    </td>
+    <td>
+      {{profile.surname}}
+    </td>
+    {{/with}}
+    <td>
+      <a href="{{pathFor 'viewPerformance'}}">View Performance</a>
+    </td>
+    <td>
+      {{status}}
+    </td>
+    <td>
+      <button type="submit" class="reopenReview btn btn-default">Reopen</button>
+    </td>
+  </tr>
+
+</template>

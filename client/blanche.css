@@ -1,0 +1,49 @@
+/* CSS declarations go here */
+.push-right {
+  text-align: right;
+}
+
+.central {
+  text-align: center;
+}
+
+.question{
+  border-width: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 40px;
+}
+
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+.card {
+  background: white;
+  border: solid;
+  /* border-radius: 25px; */
+  border-width: 1px;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding: .5em;
+  padding-bottom: 1em;
+}
+
+.card:hover {
+  box-shadow: 10px 10px 5px #888888;
+
+}
+
+.bottom-btns {
+  background: white;
+  
+  /* border-radius: 25px; */
+  border-width: 1px;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding: .5em;
+  padding-bottom: 1em;
+  }

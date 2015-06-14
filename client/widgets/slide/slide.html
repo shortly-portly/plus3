@@ -1,0 +1,32 @@
+<template name="slide">
+  <div class="question">
+    <div class="row">
+      <div class="col-sm-1">
+        {{questionNo}}
+      </div>
+      <div class="col-sm-10">
+        {{{text}}}
+        <p></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="{{name}}">
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div class="row">
+      <div class="col-sm-2 col-sm-offset-1">
+        <strong>{{low}}</strong>
+      </div>
+      <div class="col-sm-2 central">
+        <strong>{{mid}}</strong>
+      </div>
+      <div class="col-sm-2 push-right">
+        <strong>{{high}}</strong>
+      </div>
+    </div>
+  </div>
+</template>

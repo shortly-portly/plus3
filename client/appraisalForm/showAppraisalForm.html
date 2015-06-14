@@ -1,0 +1,21 @@
+<template name="showAppraisalForm">
+  <h1>{{appraisalForm.title}}</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      <form role="form">
+        <fieldset>
+          <legend>Questions</legend>
+        </fieldset>
+        {{#each tQuestions}}
+        <div class="container">
+          <div class="question">
+            {{> Template.dynamic template=type}}
+          </div>
+        </div>
+        {{/each}}
+        <a href="{{pathFor 'listAppraisals'}}">Back</a>
+      </form>
+
+    </div>
+  </div>
+</template>

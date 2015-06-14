@@ -1,0 +1,48 @@
+<template name="newAppraisalForm">
+  <h1>New Appraisal Form</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      {{> flashMessages}}
+      <form role="form">
+        <div class="form-group">
+          <label for="formTitle">Title</label>
+          <input type="text" class="form-control" name="title" placeholder="Enter Title" value={{appraisalForm.title}}>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            New Question <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="slide" href="#">Slide</a>
+            </li>
+
+            <li><a class="standard" href="#">Standard</a>
+            </li>
+            <li><a class="words" href="#">Words</a>
+            </li>
+            <li><a class="radar" href="#">Radar</a>
+            </li>
+            <li><a class="radio" href="#">Radio</a>
+            </li>
+          </ul>
+        </div>
+
+
+        {{#each tQuestions}}
+
+        <div class="row card">
+          {{> Template.dynamic template=typed}}
+        </div>
+        {{/each}}
+        <div class="row card">
+          <div class="col-sm-12">
+            <button type="submit" class="saveAppraisalForm btn btn-default">Create</button>
+            <button type="submit" class="publishAppraisalForm btn btn-default">Publish</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</template>

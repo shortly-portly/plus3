@@ -1,0 +1,29 @@
+<template name="users">
+
+        <h1>User List</h1>
+        {{> flashMessages}}
+
+
+
+  <button type="submit" class="newUser btn btn-default">Add User</button>
+  <p></p>
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th class="central">Admin?</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each wibble}}
+    {{> userDetails}}
+  {{/each}}
+</tbody>
+</table>
+
+
+</template>

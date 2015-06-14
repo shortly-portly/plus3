@@ -1,0 +1,11 @@
+<template name="newTextArea">
+  <div class="col-sm-12">
+    <h3>Question: {{questionNo}} <small>Standard</small></h3>
+  </div>
+
+    {{> questionMenu}}
+
+
+      {{> editor questionNo=questionNo type="text" text=text}}
+
+</template>

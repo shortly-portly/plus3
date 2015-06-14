@@ -1,0 +1,14 @@
+<template name="viewPerformance">
+  <h1>View Performance</h1>
+  {{> flashMessages}}
+
+  {{#each questions}}
+    <div class="container">
+      {{> Template.dynamic template=type}}
+  </div>
+  {{/each}}
+
+
+
+
+</template>

@@ -1,0 +1,35 @@
+
+<template name="newUser">
+  <h1>New User</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      {{> flashMessages}}
+      <form class="newUser" role="form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" placeholder="Enter First Name">
+        </div>
+
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text" class="form-control floating-label" name="surname" placeholder="Enter Surname">
+        </div>
+
+        <div class="form-group">
+          <label for="role">Admin</label>
+          <input type="checkbox" class="form-control" name="role" value="admin">
+        </div>
+        <button type="submit" class="createUser btn btn-default">Create</button>
+      </form>
+
+    </div>
+  </div>
+</template>

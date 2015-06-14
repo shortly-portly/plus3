@@ -1,0 +1,34 @@
+<template name="home">
+  {{> flashMessages}}
+
+  <h1>Performance Reviews</h1>
+  <div id="example"></div>
+  <p></p>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Review Period</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each myData}}
+      <tr>
+        <td>
+          {{#if open}}
+          <a href="{{pathFor 'editPerformance'}}">{{appraisalTitle}}</a>
+          {{else}}
+          <a href="{{pathFor 'viewPerformance'}}">{{appraisalTitle}}</a>
+          {{/if}}
+        </td>
+        <td>
+        </td>
+        <td>
+          {{status}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

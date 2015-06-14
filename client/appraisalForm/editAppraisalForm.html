@@ -1,0 +1,46 @@
+<template name="editAppraisalForm">
+  <h1>{{appraisalForm.title}}</h1>
+  <div class="row">
+    <div class="col-sm-12">
+      {{> flashMessages}}
+      <form role="form">
+        <div class="form-group">
+          <label for="formTitle">Title</label>
+          <input type="text" class="form-control" name="title" value={{appraisalForm.title}} placeholder="Enter Title">
+        </div>
+        <fieldset>
+          <legend>Questions</legend>
+          <a class="newTextArea" href='#'>Text Area</a>
+          <a class="newWords" href='#'>Words</a>
+        </fieldset>
+
+        {{#each tQuestions}}
+        <div class="container">
+          <div class="question">
+            <div class="row">
+              <div class="col-sm-1">
+                {{questionNo}}.
+              </div>
+            </div>
+
+
+            {{> Template.dynamic template=typed}}
+
+            <div class="col-sm-1 text-right">
+              <a class="delete" href='#'>Delete!</a>
+            </div>
+
+
+          </div>
+        </div>
+
+          {{/each}}
+
+          <button type="submit" class="updateAppraisalForm btn btn-default">Update</button>
+          <button type="submit" class="publishAppraisalForm btn btn-default">Publish</button>
+      </form>
+
+      </div>
+    </div>
+
+</template>
