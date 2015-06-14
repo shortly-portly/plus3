@@ -21,7 +21,7 @@ input[type="radio"]{
 
 .card {
   background: white;
-  border: solid;
+
   /* border-radius: 25px; */
   border-width: 1px;
   margin-top: 1em;
@@ -31,14 +31,10 @@ input[type="radio"]{
   padding-bottom: 1em;
 }
 
-.card:hover {
-  box-shadow: 10px 10px 5px #888888;
-
-}
 
 .bottom-btns {
   background: white;
-  
+
   /* border-radius: 25px; */
   border-width: 1px;
   margin-top: 1em;

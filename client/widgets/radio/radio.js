@@ -4,6 +4,10 @@ Template.radio.helpers({
     var answer = Reviews.findOne({_id: Session.get('reviewId')});
     var name = Template.parentData(1).name;
 
+    if (!answer) {
+      return false
+    };
+
     if (value == answer.data[Template.parentData(1).questionNo]) {
       return true;
     } else {

@@ -1,7 +1,19 @@
 Template.radar.rendered = function() {
 
+
+  console.log("radar.rendered");
+  console.log(this.data.options.length);
   var name = this.data.name;
+  var data;
   var answer = Reviews.findOne({_id: Session.get('reviewId')});
+  if (answer) {
+    data = _.values(answer.data[this.data.questionNo])
+    console.log("value of data is....");
+    console.log(data);
+  } else {
+    //data = 0;
+    data = _.range(0, this.data.options.length, 0);
+  }
 
   var data = {
 
@@ -15,7 +27,7 @@ Template.radar.rendered = function() {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: _.values(answer.data[this.data.questionNo])
+            data: data
         }
     ]
   };

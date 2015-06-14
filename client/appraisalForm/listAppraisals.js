@@ -11,6 +11,17 @@ Template.listAppraisals.events ({
   'click .reviewAppraisal': function(event) {
     event.preventDefault();
 
-    Router.go('reviewAppraisalForm', {_id: this._id})
+    Router.go('showAppraisalForm', {_id: this._id})
+  }
+})
+
+Template.listAppraisals.helpers({
+  created: function() {
+    if (this.status == "created") {
+      return true
+    } else {
+      return false
+    };
+
   }
 })

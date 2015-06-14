@@ -7,23 +7,22 @@ Template.words.helpers({
       mode = true;
     };
 
-    var wibble = Session.get('reviewId');
-    console.log("review Id");
-    console.log(wibble);
 
     answer = Reviews.findOne({
       _id: Session.get('reviewId')
     });
 
-    console.log("words attributes...answer....");
-    console.log(answer);
+    if (answer) {
+      words = answer.data[this.questionNo];
 
-
-    words = answer.data[this.questionNo];
-
-    if (words && words[index]) {
-      value = words[index];
+      if (words && words[index]) {
+        value = words[index];
+      }
+    } else {
+      value = null;
     }
+
+
 
 
     var attr =

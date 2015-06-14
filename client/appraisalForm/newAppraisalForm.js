@@ -1,4 +1,5 @@
 var createAppraisalForm = function(evt, template, status) {
+  console.log("create Appraisal Form in new Appraisal Form called");
   var id;
   var errors = [];
   event.preventDefault();
@@ -15,8 +16,11 @@ var createAppraisalForm = function(evt, template, status) {
   }
 
   if (errors.length > 0) {
+    console.log("this form has errors");
     FlashMessages.sendError(errors);
-    return
+
+    return null;
+
   };
 
   id = Appraisals.insert({
@@ -39,6 +43,8 @@ var createAppraisalForm = function(evt, template, status) {
 
 var updateAppraisalForm = function(evt, template, id, status) {
 
+  console.log("Update Appraisal Form in newAppraisalForm.js");
+
   var errors = [];
   event.preventDefault();
 
@@ -55,7 +61,8 @@ var updateAppraisalForm = function(evt, template, id, status) {
 
   if (errors.length > 0) {
     FlashMessages.sendError(errors);
-    return
+    return null;
+
   };
 
   Meteor.appraisalHelpers.updateQuestions(id, questions);
@@ -71,7 +78,9 @@ var updateAppraisalForm = function(evt, template, id, status) {
     }
   });
 
-  Router.go('listAppraisals');
+
+  return id;
+
 
 }
 
@@ -80,12 +89,17 @@ Template.newAppraisalForm.events({
   'click .saveAppraisalForm': function(evt, template) {
 
     if (this.mode == "new") {
-      createAppraisalForm(evt, template, "created");
+      id = createAppraisalForm(evt, template, "created");
     } else {
-      updateAppraisalForm(evt, template, this.appraisalForm._id, "created");
+      id = updateAppraisalForm(evt, template, this.appraisalForm._id, "created");
     }
 
+    if (!id) {
+      console.log("Null id returned - aborting");
+      return;
+    }
 
+    Router.go('listAppraisals');
 
   },
   'click .publishAppraisalForm': function(evt, template) {
@@ -99,10 +113,13 @@ Template.newAppraisalForm.events({
       id = this.appraisalForm._id;
 
 
-      updateAppraisalForm(evt, template, id, "published");
+      id = updateAppraisalForm(evt, template, id, "published");
     }
 
-
+    if (!id) {
+      console.log("Null id returned - aborting");
+      return;
+    }
 
     var data = [];
 

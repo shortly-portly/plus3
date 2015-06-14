@@ -16,7 +16,8 @@ var updateAppraisalForm = function(evt, template, id, status) {
 
   if (errors.length > 0) {
     FlashMessages.sendError(errors);
-    return
+    Router.go('editAppraisalForm', {_id: id})
+
   };
 
    console.log("updateAppraisal Form");
@@ -69,6 +70,8 @@ Template.editAppraisalForm.events({
   },
   'click .publishAppraisalForm': function(evt, template) {
     event.preventDefault();
+
+    console.log("Publishing");
 
     var id = this.appraisalForm._id;
     updateAppraisalForm(evt, template, id, 'published');

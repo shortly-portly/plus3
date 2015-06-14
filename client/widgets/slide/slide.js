@@ -1,11 +1,17 @@
 Template.slide.rendered = function() {
 
   var answer = Reviews.findOne({_id: Session.get('reviewId')});
-
+  var start;
   var selector = "." + 'Q' + this.data.questionNo;
 
+  if (answer) {
+    start = [ answer.data[this.data.questionNo] ]
+  } else {
+    start = 50;
+  }
+
   $(selector).noUiSlider({
-    start: [ answer.data[this.data.questionNo] ],
+    start: start,
     range: {
       'min': [  0 ],
       'max': [ 100 ]
