@@ -1,5 +1,7 @@
 Template.textArea.helpers({
     attributes: function() {
+
+      
       var value;
 
       var answer = Reviews.findOne({
