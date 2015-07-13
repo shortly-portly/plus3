@@ -129,7 +129,11 @@ Template.newAppraisalForm.events({
       data[question.questionNo] = question.default;
     });
 
-    Meteor.users.find().forEach(function(user) {
+    var x = Meteor.users.find({profile: {status: "active"}}).count();
+    console.log("found users...");
+    console.log(x);
+
+    Meteor.users.find({"profile.status": "active"}).forEach(function(user) {
 
       Reviews.insert({
         user: user._id,
@@ -150,20 +154,23 @@ Template.newAppraisalForm.events({
 
   'click .words': function(evt, template) {
     evt.preventDefault();
-    evt.stopPropagation();
     Meteor.appraisalHelpers.newQuestion('words');
   },
   'click .radar': function(evt, template) {
     evt.preventDefault();
     Meteor.appraisalHelpers.newQuestion('radar');
   },
-  'click .radio': function(evt, template) {
+  'click .radioo': function(evt, template) {
     evt.preventDefault();
     Meteor.appraisalHelpers.newQuestion('radio');
   },
   'click .slide': function(evt, template) {
     evt.preventDefault();
     Meteor.appraisalHelpers.newQuestion('slide');
+  },
+  'click .section': function(evt, template) {
+    evt.preventDefault();
+    Meteor.appraisalHelpers.newQuestion('section');
   },
 
   'click .delete': function() {

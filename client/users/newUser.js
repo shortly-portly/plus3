@@ -34,9 +34,6 @@ var validateUser = {
 
 var createReview = function(user) {
 
-  console.log("Creating Review for ...");
-  console.log(user);
-
   var data = [];
   Appraisals.find({
     status: 'published'
@@ -59,14 +56,8 @@ var createReview = function(user) {
   })
 };
 
-
-
-
-
-
-
-
 Template.newUser.events({
+
   'click .createUser': function(evt, template) {
     evt.preventDefault();
     var errors = [];
@@ -87,13 +78,13 @@ Template.newUser.events({
       return
     };
 
-
-
-    if (data.role) {
-      data.role = "admin";
+    if (data.profile.role) {
+      data.profile.role = "admin";
     } else {
-      data.role = "";
+      data.profile.role = "";
     }
+
+    data.profile.status = "active";
 
     if (errors.length > 0) {
       FlashMessages.sendError(errors);

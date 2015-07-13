@@ -35,6 +35,9 @@ Template.showAppraisalForm.created = function() {
     questionNo = questionNo + 1;
   })
 
+  console.log("and the answer is....");
+  console.log(questionNo);
+
   Session.set("questionNo", questionNo);
 
 };

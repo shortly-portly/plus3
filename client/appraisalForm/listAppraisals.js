@@ -38,13 +38,9 @@ Template.listAppraisals.events ({
     console.log(questions);
 
     _.each(questions, function(question) {
-      Questions.insert({
-        appraisal: id,
-        questionNo: question.questionNo,
-        text: question.text,
-        type: question.type,
-        default: question.default
-      })
+      delete question._id;
+      question.appraisal = id;
+      Questions.insert(question)
     });
   }
 })
@@ -58,4 +54,4 @@ Template.listAppraisals.helpers({
     };
 
   }
-})
+});

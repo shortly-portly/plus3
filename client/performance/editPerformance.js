@@ -38,7 +38,9 @@ var collectData = function(template) {
 
     var data = {};
     template.data.questions.forEach(function(question) {
-      data[question.questionNo] = collectDataFns[question.type](template, question);
+      if(question.type !== 'section') {
+        data[question.questionNo] = collectDataFns[question.type](template, question);
+      };
     });
 
     return data;

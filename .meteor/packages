@@ -12,7 +12,8 @@ mrt:flash-messages
 mrt:bootstrap-3
 sacha:spin
 rgoomar:bootstrap-validator
-hipertracker:reactjs
 mike:mocha
 msavin:mongol
 portlyshortly:string
+meteorhacks:fast-render
+hitchcott:app-dump

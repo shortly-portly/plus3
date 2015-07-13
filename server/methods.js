@@ -15,4 +15,5 @@ Meteor.methods({
  deleteQuestions: function(id) {
    Questions.remove({appraisal: id})
  }
+
 });

@@ -18,10 +18,13 @@ Template.questionMenu.events({
   'click .radar': function(evt) {
     updateQuestion(this, 'radar', evt);
   },
-  'click .radio': function(evt) {
+  'click .radioo': function(evt) {
     updateQuestion(this, 'radio', evt);
   },
   'click .slide': function(evt) {
     updateQuestion(this, 'slide', evt)
+  },
+  'click .section': function(evt) {
+    updateQuestion(this, 'section', evt)
   }
 })

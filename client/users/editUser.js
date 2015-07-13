@@ -32,7 +32,7 @@ Template.editUser.helpers({
 
 Template.editUser.events({
   'click .updateUser': function(evt, template) {
-    event.preventDefault();
+    evt.preventDefault();
     var errors = [];
 
     data = {
@@ -41,7 +41,46 @@ Template.editUser.events({
       profile: {
         firstName: template.find("input[name=firstName]").value,
         surname: template.find("input[name=surname]").value,
-        role: template.find("input[name=role]").checked
+        role: template.find("input[name=role]").checked,
+        status: "active"
+      }
+    };
+
+    errors = validateUser(data);
+
+
+    if (data.role) {
+      data.role = "admin";
+    } else {
+      data.role = "";
+    }
+
+    if (errors.length > 0) {
+      FlashMessages.sendError(errors);
+      return;
+    } else {
+      Meteor.call('updateServerUser', data, function(error, result) {
+        if (error) {
+          FlashMessages.sendError("Error in creating user");
+        }
+      });
+    }
+
+    FlashMessages.sendInfo("User Updated");
+
+  },
+
+  'click .deleteUser': function(evt, template) {
+    evt.preventDefault();
+
+    data = {
+      id: this._id,
+      email: template.find("input[name=email]").value,
+      profile: {
+        firstName: template.find("input[name=firstName]").value,
+        surname: template.find("input[name=surname]").value,
+        role: template.find("input[name=role]").checked,
+        status: "inactive"
       }
     };
 
