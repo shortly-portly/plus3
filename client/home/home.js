@@ -7,10 +7,7 @@ Template.home.helpers({
     }
   },
   appraisalTitle: function() {
-    console.log("Appraisal Title");
-    console.log(this);
     appraisal = Appraisals.findOne({_id: this.appraisal});
-    console.log(appraisal);
     return appraisal.title;
   }
 });

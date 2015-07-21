@@ -8,7 +8,7 @@ Template.radio.helpers({
       return false
     };
 
-    if (value == answer.data[Template.parentData(1).questionNo]) {
+    if (value == answer.data[Template.parentData(1).position]) {
       return true;
     } else {
       return false;

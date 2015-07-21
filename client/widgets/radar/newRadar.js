@@ -7,9 +7,6 @@ Template.newRadar.helpers({
       mode = true;
     };
 
-
-    console.log("newRadar");
-    console.log(this);
     if (this.options) {
       value = this.options[index]
     } else {
@@ -20,7 +17,7 @@ Template.newRadar.helpers({
       type: "text",
       readonly: mode,
       class: "form-control",
-      name: "Q" + this.questionNo + "r" + index,
+      name: "Q" + this.position + "r" + index,
       placeholder: index + 1,
       value: value
     }

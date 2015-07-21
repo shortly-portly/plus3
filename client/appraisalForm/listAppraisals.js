@@ -31,16 +31,21 @@ Template.listAppraisals.events ({
     var id = Appraisals.insert({
       title: this.title + " copy",
       nextQuestionNo: this.nextQuestionNo,
+      position: 1,
       status: "created"
     });
+
+    console.log("copy Appraisal");
+    console.log(this._id);
 
     var questions = Questions.find({appraisal: this._id}).fetch();
     console.log(questions);
 
     _.each(questions, function(question) {
+      console.log("insewrting questions");
       delete question._id;
       question.appraisal = id;
-      Questions.insert(question)
+      Questions.insert(question);
     });
   }
 })

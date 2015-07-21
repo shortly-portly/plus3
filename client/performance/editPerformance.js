@@ -1,19 +1,19 @@
 var collectDataFns = {
   textArea: function(template, data) {
-    var selector = "textarea[name=Q" + data.questionNo + "]";
+    var selector = "textarea[name=Q" + data.position + "]";
     return template.find(selector).value;
   },
   words: function(template, data) {
     var description = [];
     for (i=0; i<5; i++) {
-      find = "input[name=Q" + data.questionNo + "w" + i + "]";
+      find = "input[name=Q" + data.position + "w" + i + "]";
       description[i] = template.find(find).value;
     }
 
     return description;
   },
   slide: function(template, data) {
-    return $('.Q' + data.questionNo).val();
+    return $('.Q' + data.position).val();
   },
   radio: function(template, data) {
     var selector = "input[name=" + data.name + "]:checked";
@@ -39,7 +39,7 @@ var collectData = function(template) {
     var data = {};
     template.data.questions.forEach(function(question) {
       if(question.type !== 'section') {
-        data[question.questionNo] = collectDataFns[question.type](template, question);
+        data[question.position] = collectDataFns[question.type](template, question);
       };
     });
 
@@ -48,7 +48,6 @@ var collectData = function(template) {
 
 Template.editPerformance.helpers({
   title: function() {
-    console.log(this);
     return Appraisals.findOne(review.appraisal).title;
   }
 })
@@ -71,8 +70,6 @@ Template.editPerformance.events ({
 
     var data = collectData(template);
     Reviews.update(this.review._id, {$set: {"data": data, "status": "closed"}});
-    console.log("review Id is....");
-    console.log(Session.get('reviewId'));
     Router.go('viewPerformance', {_id: Session.get('reviewId')});
   }
 });

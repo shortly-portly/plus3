@@ -1,7 +1,6 @@
 Template.textArea.helpers({
     attributes: function() {
 
-      
       var value;
 
       var answer = Reviews.findOne({
@@ -12,7 +11,7 @@ Template.textArea.helpers({
      // won't be any answers associated with it.
 
      if (answer) {
-       value = answer.data[this.questionNo]
+       value = answer.data[this.position]
      } else {
        value = null;
      }
@@ -24,7 +23,7 @@ Template.textArea.helpers({
       return {
         readonly: mode,
         class: "form-control",
-        name: "Q" + this.questionNo,
+        name: "Q" + this.position,
         rows: "5",
         value: value
       }

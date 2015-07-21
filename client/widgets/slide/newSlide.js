@@ -1,11 +1,9 @@
 Template.newSlide.helpers({
   attributes: function(name) {
 
-    console.log(this[name]);
-
     return {
       class: "form-control",
-      name: "Q" + this.questionNo + "-" + name,
+      name: "Q" + this.position + "-" + name,
       placeholder: name,
       value: this[name]
 

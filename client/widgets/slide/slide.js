@@ -2,10 +2,10 @@ Template.slide.rendered = function() {
 
   var answer = Reviews.findOne({_id: Session.get('reviewId')});
   var start;
-  var selector = "." + 'Q' + this.data.questionNo;
+  var selector = "." + 'Q' + this.data.position;
 
   if (answer) {
-    start = [ answer.data[this.data.questionNo] ]
+    start = [ answer.data[this.data.position] ]
   } else {
     start = 50;
   }
@@ -26,6 +26,6 @@ Template.slide.rendered = function() {
 
 Template.slide.helpers({
   name: function() {
-    return 'Q' + this.questionNo;
+    return 'Q' + this.position;
   }
 });

@@ -9,9 +9,9 @@ Template.header.helpers({
 Template.header.events({
   'click .logout': function(evt, template) {
       event.preventDefault();
-
       Meteor.logout();
   },
+  
   'click .newUser': function(evt) {
     event.preventDefault();
     Router.go('newUser');
@@ -19,4 +19,3 @@ Template.header.events({
   }
 
 });
-

@@ -5,7 +5,6 @@ Template.performanceDetail.helpers ({
   },
   title: function() {
     var x = Appraisals.findOne({_id: this.appraisal});
-    console.log("title");
     return x.title;
   }
 });

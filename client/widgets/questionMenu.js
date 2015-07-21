@@ -2,7 +2,7 @@ var updateQuestion = function(question, newType,evt) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  var textSelector = "editor" + question.questionNo;
+  var textSelector = "editor" + question.position;
   var questionText = CKEDITOR.instances[textSelector].getData()
 
   tempQuestions.update(question._id, {$set: {type:newType, text: questionText}});

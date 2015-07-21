@@ -1,3 +1,23 @@
+h1 {
+  font-family: Garamond;
+  font-size: 24px;
+}
+
+h2 {
+  font-family: Garamond;
+  font-size: 20px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: Garamond;
+  font-size: 20px;
+}
+p {
+  font-family: calibri;
+  font-size: 14px;
+}
+
 /* CSS declarations go here */
 .push-right {
   text-align: right;
@@ -43,3 +63,21 @@ input[type="radio"]{
   padding: .5em;
   padding-bottom: 1em;
   }
+
+.section {
+  font-family: calibri;
+}
+
+.section h1 {
+  font-family: Garamond;
+  font-size: 24px;
+}
+.section h2 {
+  font-family: Garamond;
+  font-size: 20px;
+  font-style: italic;
+}
+.section h3 {
+  font-family: Garamond;
+  font-size: 20px;
+}

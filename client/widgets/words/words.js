@@ -13,7 +13,7 @@ Template.words.helpers({
     });
 
     if (answer) {
-      words = answer.data[this.questionNo];
+      words = answer.data[this.position];
 
       if (words && words[index]) {
         value = words[index];
@@ -22,15 +22,12 @@ Template.words.helpers({
       value = null;
     }
 
-
-
-
     var attr =
     {
       type: "text",
       readonly: mode,
       class: "form-control",
-      name: "Q" + this.questionNo + "w" + index,
+      name: "Q" + this.position + "w" + index,
       placeholder: index + 1,
       value: value
     }
