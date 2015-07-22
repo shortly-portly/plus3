@@ -119,7 +119,7 @@ Template.newAppraisalForm.events({
     Questions.find({
       appraisal: id
     }).forEach(function(question) {
-      data[question.questionNo] = question.default;
+      data[question.position] = question.default;
     });
 
     Meteor.users.find({"profile.status": "active"}).forEach(function(user) {
@@ -262,13 +262,13 @@ Template.newAppraisalForm.helpers({
   typed: function() {
     var templateName = "new" + this.type[0].toUpperCase() + this.type.slice(1)
     return templateName;
+  },
+  debug: function() {
+    console.log(this);
   }
 
 });
 
-Template.newAppraisalForm.rendered = function () {
-  console.log("rendered called");
-}
 
 Template.newAppraisalForm.created = function() {
 
@@ -294,11 +294,13 @@ Template.newAppraisalForm.created = function() {
       }
 
       questionNo = questionNo + 1;
-      position = position + 1;
+      position = question.position;
     });
-
+    position = position + 1;
     Session.set("questionNo", questionNo);
     Session.set("position", position)
+    console.log("new Appraisal Form - created called");
+    console.log("position is ...." + position);
 
   }
 

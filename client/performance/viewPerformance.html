@@ -5,10 +5,34 @@
   {{#each questions}}
     <div class="container">
       {{> Template.dynamic template=type}}
+
+
   </div>
   {{/each}}
 
 
+  {{#if adminUser }}
+    {{> editComment }}
+  <div class="row bottom-btns">
+    <div class="col-sm-12">
+      <button type="submit" class="saveComment btn btn-default">Save</button>
+    </div>
+  </div>
+  {{else}}
+  <div class="question">
 
+    <div class="row">
+      <div class="col-sm-1">
+        Comment
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        {{{comment}}}
+      </div>
+    </div>
+  </div>
+
+{{/if}}
 </template>

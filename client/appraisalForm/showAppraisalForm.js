@@ -8,7 +8,7 @@ Template.showAppraisalForm.helpers({
     return templateName;
   },
   tQuestions: function () {
-    return tempQuestions.find();
+    return tempQuestions.find({}, {sort: [['position', 'asc']]});
   }
 })
 
@@ -17,7 +17,7 @@ Template.showAppraisalForm.created = function() {
   tempQuestions.remove({});
 
   var questionNo = 1;
-  var position = 1;
+  var position = 0;
 
   var questions = this.data.questions.fetch();
 
@@ -29,8 +29,9 @@ Template.showAppraisalForm.created = function() {
     }
 
     questionNo = questionNo + 1;
-    position = position + 1;
+    position = question.position;
   })
+  position = position + 1;
 
   Session.set("questionNo", questionNo);
   Session.set("position", position);

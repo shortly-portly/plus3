@@ -16,12 +16,13 @@ var collectDataFns = {
     return $('.Q' + data.position).val();
   },
   radio: function(template, data) {
-    var selector = "input[name=" + data.name + "]:checked";
+    var selector = "input[name=" + data.position + "]:checked";
     return template.find(selector).value;
   },
   radar: function(template, data) {
+    console.log("getting data for radara");
 
-    wibble = Radar[data.name].getData();
+    wibble = Radar[data.position].getData();
 
     var satisfaction = [];
     var satisfactionData = {};
@@ -49,6 +50,9 @@ var collectData = function(template) {
 Template.editPerformance.helpers({
   title: function() {
     return Appraisals.findOne(review.appraisal).title;
+  },
+  tQuestions: function () {
+    return Questions.find({}, {sort: [['position', 'asc']]});
   }
 })
 Template.editPerformance.events ({

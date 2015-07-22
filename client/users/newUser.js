@@ -44,7 +44,7 @@ var createReview = function(user) {
     Questions.find({
       appraisal: appraisal._id
     }).forEach(function(question) {
-      data[question.questionNo] = question.default;
+      data[question.position] = question.default;
     });
 
     Reviews.insert({

@@ -7,6 +7,10 @@ Meteor.publish('questions', function() {
   return Questions.find();
 });
 
+Meteor.publish('comments', function() {
+  return Comments.find();
+});
+
 Meteor.publish('allUsers', function() {
 
     if (this.userId) {

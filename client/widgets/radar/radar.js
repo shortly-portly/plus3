@@ -35,10 +35,10 @@ Template.radar.rendered = function() {
   Chart.defaults.global.scaleSteps = 10;
   Chart.defaults.global.scaleStepWidth = 1;
 
-  ctx = document.getElementById("Q" + this.data.questionNo).getContext("2d");
+  ctx = document.getElementById("Q" + this.data.position).getContext("2d");
   myRadarChart = new Chart(ctx).Radar(data, options);
 
-  Radar[this.data.name] = myRadarChart;
+  Radar[this.data.position] = myRadarChart;
   this.data.radar = myRadarChart;
 
 

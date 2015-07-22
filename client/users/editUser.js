@@ -33,7 +33,18 @@ Template.editUser.helpers({
 Template.editUser.events({
   'click .updateUser': function(evt, template) {
     evt.preventDefault();
-    var errors = [];
+
+
+    Meteor.call('updatePassword', this._id, function(error, result) {
+      if (error) {
+        console.log("something went wrong")
+      }
+    });
+
+    
+
+
+  /*  var errors = [];
 
     data = {
       id: this._id,
@@ -67,6 +78,9 @@ Template.editUser.events({
     }
 
     FlashMessages.sendInfo("User Updated");
+*/
+
+
 
   },
 

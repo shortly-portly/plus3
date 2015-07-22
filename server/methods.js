@@ -14,6 +14,10 @@ Meteor.methods({
 },
  deleteQuestions: function(id) {
    Questions.remove({appraisal: id})
+ },
+
+ updatePassword: function(id) {
+   Accounts.setPassword(id, "wibble");
  }
 
 });

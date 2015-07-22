@@ -7,7 +7,9 @@ Template.radio.helpers({
     if (!answer) {
       return false
     };
-
+    console.log("radio helper");
+    console.log(answer.data);
+    console.log(answer.data[Template.parentData(1).position]);
     if (value == answer.data[Template.parentData(1).position]) {
       return true;
     } else {
@@ -24,6 +26,6 @@ Template.radio.helpers({
     }
   },
   radioName: function() {
-    return Template.parentData(1).name;
+    return Template.parentData(1).position;
   }
 });
