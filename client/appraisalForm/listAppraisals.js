@@ -16,13 +16,22 @@ Template.listAppraisals.events ({
   'click .deleteAppraisal': function(event) {
     event.preventDefault();
 
-    // Only delete an appraisal if no-one has
-    // submitted a completed one.
+    // Delete any reviews associated with this Appraisal
 
-    if(Reviews.find({appraisal: this._id, status: "closed"}).count() == 0) {
-      Meteor.call('deleteQuestions', this._id);
-      Appraisals.remove({_id: this._id});
-    }
+    Meteor.call('deleteReviews', this._id, function(error, result) {
+      if (error) {
+        FlashMessages.sendError("Problem deleting Reviews for this Appraisal");
+        return;
+      }
+    });
+
+    Meteor.call('deleteQuestions', this._id, function(error, result) {
+      if (error) {
+        FlashMessages.sendError("Problem deleting Questions for this Appraisal");
+      }
+    });
+
+    Appraisals.remove({_id: this._id});
 
   },
   'click .copyAppraisal': function(event) {

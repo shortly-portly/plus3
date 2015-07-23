@@ -35,16 +35,10 @@ Template.editUser.events({
     evt.preventDefault();
 
 
-    Meteor.call('updatePassword', this._id, function(error, result) {
-      if (error) {
-        console.log("something went wrong")
-      }
-    });
-
-    
 
 
-  /*  var errors = [];
+
+  var errors = [];
 
     data = {
       id: this._id,
@@ -78,47 +72,37 @@ Template.editUser.events({
     }
 
     FlashMessages.sendInfo("User Updated");
-*/
-
-
 
   },
 
   'click .deleteUser': function(evt, template) {
     evt.preventDefault();
 
-    data = {
-      id: this._id,
-      email: template.find("input[name=email]").value,
-      profile: {
-        firstName: template.find("input[name=firstName]").value,
-        surname: template.find("input[name=surname]").value,
-        role: template.find("input[name=role]").checked,
-        status: "inactive"
-      }
-    };
+    // Don't delete the user if it is Blanche.
 
-    errors = validateUser(data);
-
-
-    if (data.role) {
-      data.role = "admin";
-    } else {
-      data.role = "";
-    }
-
-    if (errors.length > 0) {
-      FlashMessages.sendError(errors);
+    if (this.username == 'blanche') {
+      FlashMessages.sendError("Can't delete Blanche");
+      Router.go('users');
       return;
-    } else {
-      Meteor.call('updateServerUser', data, function(error, result) {
-        if (error) {
-          FlashMessages.sendError("Error in creating user");
-        }
-      });
     }
 
-    FlashMessages.sendInfo("User Updated");
+    // Delete all review for this user.
 
+    Meteor.call('deleteUserReviews', this._id, function(error, result) {
+      if (error) {
+        FlashMessages.sendError("Error deleting reviews for this User")
+        return;
+      }
+    })
+
+    Meteor.call('deleteUser', this._id, function(error, result) {
+      if (error) {
+        FlashMessages.sendError("Error deleting user");
+      } else {
+        FlashMessages.sendError("User deleted");
+        Router.go('users');
+
+      }
+    });
   }
 });

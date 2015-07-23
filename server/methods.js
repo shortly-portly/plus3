@@ -12,7 +12,19 @@ Meteor.methods({
                   });
   return result;
 },
- deleteQuestions: function(id) {
+
+  deleteUser: function(id) {
+    return Meteor.users.remove({_id: id})
+  },
+
+  deleteUserReviews: function(id) {
+    return Reviews.remove({user: id})
+  },
+  deleteReviews: function(id) {
+    return Reviews.remove({appraisal: id})
+  },
+  
+  deleteQuestions: function(id) {
    Questions.remove({appraisal: id})
  },
 

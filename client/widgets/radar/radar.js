@@ -45,6 +45,7 @@ Template.radar.rendered = function() {
 };
 
 
+
 Template.radar.events({
   'click': function(evt,template) {
 

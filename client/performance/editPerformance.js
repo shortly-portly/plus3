@@ -82,5 +82,6 @@ Template.editPerformance.created = function() {
 
   Session.set("reviewId", this.data.review._id);
   Session.set("mode", "edit");
+  Session.set('qNo', 1);
 
 };
